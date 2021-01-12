@@ -3,5 +3,46 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "ng-slide-frame": {
+      "projectType": "library",
+      "root": "projects/ng-slide-frame",
+      "sourceRoot": "projects/ng-slide-frame/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-slide-frame/tsconfig.lib.json",
+            "project": "projects/ng-slide-frame/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-slide-frame/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-slide-frame/src/test.ts",
+            "tsConfig": "projects/ng-slide-frame/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-slide-frame/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-slide-frame/tsconfig.lib.json",
+              "projects/ng-slide-frame/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "ng-slide-frame"
 }
