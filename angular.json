@@ -30,14 +30,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "projects/ng-slide-frame/tsconfig.lib.json",
-              "projects/ng-slide-frame/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "projects/ng-slide-frame/**/*.ts",
+              "projects/ng-slide-frame/**/*.html"
             ]
           }
         }
